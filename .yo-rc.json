@@ -1,0 +1,9 @@
+{
+  "generator-gen-2": {
+    "value1": "value1",
+    "value2": "value2",
+    "confirmClient": "no",
+    "confirmServer": "yes",
+    "projectName": "sampleProject"
+  }
+}
