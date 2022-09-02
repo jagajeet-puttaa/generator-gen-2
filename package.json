@@ -72,7 +72,6 @@
     ]
   },
   "scripts": {
-    "pretest": "eslint .",
     "test": "jest"
   },
   "repository": "jagajeet-puttaa/generator-gen-2",

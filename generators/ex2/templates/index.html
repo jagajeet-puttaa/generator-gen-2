@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title><%= title %></title>
+    </head>
+    <body>
+        <hr style="text-align:center;margin-left:0;">
+        <h2 style="text-align: center;"><%= title %></h2>
+        <hr style="text-align:center;margin-left:0;">
+        <button><a href=<%= profileLink %>> Visit <%= socialmedia %> </a></button>
+
+        <div style="display: flex;">
+            <div style="margin: 2em;">
+                <img src=<%= img1 %>>
+            </div>
+
+            <div style="margin: 2em;">
+                <h2>Roles</h2>
+                <ul><% list1.forEach(function(item){ %>
+                    <li><%- item %></li> <% }) %>
+                </ul>
+
+                <h2>Genres</h2>
+                <ol><% genres.forEach(function(genre){ %>
+                    <li><%- genre %></li> <% }) %>
+                </ol>
+            </div>
+
+            <div style="margin: 2em;">
+                <h2>Table</h2>
+                <table>
+                    <tr>
+                        <th style="border: 1px solid black; border-collapse: collapse;">Rating</th>
+                        <th style="border: 1px solid black; border-collapse: collapse;">Movie</th>
+                    </tr>
+                    <tr><% for(rating in ratings){ %>
+                        <td style="border: 1px solid black; border-collapse: collapse;"><%= rating%></td>
+                        <td style="border: 1px solid black; border-collapse: collapse;"><%= ratings[rating]%></td>
+                    </tr><% } %>
+                </table>
+            </div>
+        </div>
+    </body>
+    
+<% if (confirmFooter){%>
+<%- include('../partials/footer') %>
+<% } %>
+
+
+</html>

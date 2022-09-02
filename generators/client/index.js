@@ -1,11 +1,9 @@
-'use strict';
-const Generator = require('yeoman-generator');
-const chalk = require('chalk');
-const yosay = require('yosay');
+const Generator = require("yeoman-generator");
+// const chalk = require("chalk");
+// const yosay = require("yosay");
 
 module.exports = class extends Generator {
-
-  // prompting(){
+  // Prompting(){
   //   console.log("prompting-c");
   // }
 
@@ -29,33 +27,33 @@ module.exports = class extends Generator {
   //   console.log("install-c");
   // }
 
-  initializing(){
+  initializing() {
     console.log("Client created");
     this.brmaConfig = this.config.createProxy();
   }
 
-  async prompting(){
+  async prompting() {
     console.log("prompting");
 
-    if(!this.brmaConfig.pageName){
+    if (!this.brmaConfig.pageName) {
       this.answers = await this.prompt([
         {
-            type: "input",
-            name: "pageName",
-            message: "Enter the name of the page : ",
-            default: "Profile"
+          type: "input",
+          name: "pageName",
+          message: "Enter the name of the page : ",
+          default: "Profile"
         },
         {
-            type: "input",
-            name: "confirmLoginModule",
-            message: "Do you want login module : ",
-            default: true
-        },
+          type: "input",
+          name: "confirmLoginModule",
+          message: "Do you want login module : ",
+          default: true
+        }
       ]);
 
       this.brmaConfig.pageName = this.answers.pageName;
 
-      // this.brmaConfig.confirmLoginModule = this.answers.confirmLoginModule;
+      // This.brmaConfig.confirmLoginModule = this.answers.confirmLoginModule;
 
       // if(this.answers.confirmLoginModule){
 
@@ -81,13 +79,12 @@ module.exports = class extends Generator {
       //   // this.brmaConfig.loginModule.username = this.answers.username;
       //   // this.brmaConfig.loginModule.password = this.answers.password;
       // }
-    }
-    else{
+    } else {
       console.log("Prompting Skipped");
 
       this.answers = [];
       this.answers.pageName = this.brmaConfig.pageName;
-      // this.answers.confirmLoginModule = this.brmaConfig.confirmLoginModule;
+      // This.answers.confirmLoginModule = this.brmaConfig.confirmLoginModule;
 
       // if(this.answers.confirmLoginModule){
       //   this.answers.username = this.brmaConfig.loginModule.username;
@@ -96,17 +93,15 @@ module.exports = class extends Generator {
     }
   }
 
-  writing(){
+  writing() {
     this.fs.copyTpl(
-      this.templatePath('index.html'),
-      this.destinationPath('client/index.html'),
+      this.templatePath("index.html"),
+      this.destinationPath("client/index.html"),
       { title: this.answers.pageName }
-    )
+    );
   }
 
-
-
-  // prompting() {
+  // Prompting() {
   //   // Have Yeoman greet the user.
   //   this.log(
   //     yosay(
